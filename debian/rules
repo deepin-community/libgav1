@@ -1,0 +1,39 @@
+#!/usr/bin/make -f
+DPKG_EXPORT_BUILDFLAGS = 1
+
+include /usr/share/dpkg/buildflags.mk
+export DEB_BUILD_MAINT_OPTIONS = hardening=+all
+
+CXXFLAGS += $(CPPFLAGS)
+
+EXTRA_CONFIG_FLAGS =
+
+# try to fix FTBFS on mipsel
+ifneq (,$(filter $(DEB_HOST_ARCH), armel m68k mips mipsel powerpc powerpcspe sh4))
+  export DEB_LDFLAGS_MAINT_APPEND=-latomic
+endif
+
+# Conform to Debian's baseline requirement
+# https://wiki.debian.org/ArchitectureSpecificsMemo
+
+ifneq (,$(filter $(DEB_HOST_ARCH), i386 amd64 x32))
+  EXTRA_CONFIG_FLAGS += -DLIBGAV1_ENABLE_SSE4_1=0 -DLIBGAV1_ENABLE_AVX2=0
+endif
+
+ifneq (,$(filter $(DEB_HOST_ARCH), armel armhf))
+  EXTRA_CONFIG_FLAGS += -DLIBGAV1_ENABLE_NEON=0
+endif
+
+ifneq (,$(filter $(DEB_HOST_ARCH), arm64))
+  EXTRA_CONFIG_FLAGS += -DLIBGAV1_ENABLE_NEON=1
+endif
+
+
+
+%:
+	dh $@
+
+override_dh_auto_configure:
+	dh_auto_configure -- \
+	    -DBUILD_SHARED_LIBS=ON \
+	    $(EXTRA_CONFIG_FLAGS)

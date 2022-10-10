@@ -1,0 +1,42 @@
+From: Boyuan Yang <byang@debian.org>
+Date: Sun, 7 Nov 2021 08:57:45 -0500
+Subject: Unbundling abseil
+
+---
+ CMakeLists.txt | 15 ++-------------
+ 1 file changed, 2 insertions(+), 13 deletions(-)
+
+diff --git a/CMakeLists.txt b/CMakeLists.txt
+index 4029de1..5d431dd 100644
+--- a/CMakeLists.txt
++++ b/CMakeLists.txt
+@@ -108,7 +108,6 @@ if(LIBGAV1_VERBOSE)
+   libgav1_dump_options()
+ endif()
+ 
+-set(libgav1_abseil_build "${libgav1_build}/abseil")
+ set(libgav1_gtest_build "${libgav1_build}/gtest")
+ 
+ # Compiler/linker flags must be lists, but come in from the environment as
+@@ -123,19 +122,9 @@ endif()
+ # Set test-only flags based on LIBGAV1_CXX_FLAGS.
+ libgav1_set_test_flags()
+ 
+-set(libgav1_abseil "${libgav1_root}/third_party/abseil-cpp")
+-if(NOT EXISTS "${libgav1_abseil}")
+-  message(
+-    FATAL_ERROR
+-      "Abseil not found. This dependency is required by the"
+-      " examples & tests and libgav1 when LIBGAV1_THREADPOOL_USE_STD_MUTEX is"
+-      " not defined. To continue, download the Abseil repository to"
+-      " third_party/abseil-cpp:\n  git \\\n    -C ${libgav1_root} \\\n"
+-      "    clone \\\n"
+-      "    https://github.com/abseil/abseil-cpp.git third_party/abseil-cpp")
+-endif()
++set(absl "/usr/lib/*/cmake/absl")
++find_package(absl REQUIRED)
+ set(ABSL_PROPAGATE_CXX_STD ON)
+-add_subdirectory("${libgav1_abseil}" "${libgav1_abseil_build}" EXCLUDE_FROM_ALL)
+ 
+ libgav1_reset_target_lists()
+ libgav1_add_dsp_targets()

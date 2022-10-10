@@ -1,0 +1,43 @@
+Source: libgav1
+Section: libs
+Priority: optional
+Maintainer: Debian Multimedia Maintainers <debian-multimedia@lists.debian.org>
+Uploaders: qinxialei <xialeiqin@gmail.com>
+Build-Depends:
+ debhelper-compat (= 13),
+ cmake (>= 3.7.1),
+ libabsl-dev,
+Standards-Version: 4.5.1
+Homepage: https://chromium.googlesource.com/codecs/libgav1/
+Vcs-Browser: https://salsa.debian.org/multimedia-team/libgav1
+Vcs-Git: https://salsa.debian.org/multimedia-team/libgav1.git
+Rules-Requires-Root: no
+
+Package: libgav1-0
+Architecture: any
+Multi-Arch: same
+Depends: ${shlibs:Depends}, ${misc:Depends}
+Description: AV1 decoder developed by Google -- runtime library
+ This package contains the runtime, shared library of gav1. Gav1 is
+ a new decoder implementation for AV1 video encoding format (supporting
+ profiles 0 and 1).
+
+Package: libgav1-dev
+Section: libdevel
+Architecture: any
+Multi-Arch: same
+Depends: ${misc:Depends}, libgav1-0 (= ${binary:Version})
+Description: AV1 decoder developed by Google -- development kit
+ This package contains the header file and development library of gav1.
+ Gav1 is A new decoder implementation for AV1 video encoding format (supporting
+ profiles 0 and 1).
+
+Package: libgav1-bin
+Section: utils
+Architecture: any
+Depends: ${shlibs:Depends}, ${misc:Depends}
+Description: Av1 decoder developed by Google -- example application
+ This package provides gav1_decode binary as an example application of
+ libgav1. It can be used to decode IVF files.
+ .
+ Please see the output of "gav1_decode --help" for detailed options.

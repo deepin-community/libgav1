@@ -1,0 +1,85 @@
+libgav1 (0.17.0-1) UNRELEASED; urgency=medium
+
+  * update
+
+ -- Debian Multimedia Maintainers <debian-multimedia@lists.debian.org>  Tue, 17 May 2022 17:48:51 +0800
+
+libgav1 (0.17.0-1) unstable; urgency=medium
+
+  * Team upload.
+
+  [ Debian Janitor ]
+  * debian/copyright: use spaces rather than tabs to start continuation lines.
+
+  [ Boyuan Yang ]
+  * New upstream release 0.17.0. 
+
+ -- Boyuan Yang <byang@debian.org>  Sun, 07 Nov 2021 08:53:56 -0500
+
+libgav1 (0.16.3-2) unstable; urgency=medium
+
+  * Team upload.
+  * Upload to sid.
+
+  [ qinxialei ]
+  * d/copyright:
+    + Update copyright
+
+ -- Boyuan Yang <byang@debian.org>  Sun, 15 Aug 2021 13:09:06 -0400
+
+libgav1 (0.16.3-1~exp1) experimental; urgency=medium
+
+  * New upstream version 0.16.3
+  * d/control:
+    + Bump Standards-Version to 4.5.1.
+  * d/patches:
+    + Update patch:Unbundling-abseil.patch
+  * d/copyright:
+    + Update copyright
+
+ -- qinxialei <xialeiqin@gmail.com>  Thu, 22 Apr 2021 10:35:22 +0800
+
+libgav1 (0.16.0-5) unstable; urgency=medium
+
+  * Team upload.
+  * debian/libgav1-0.symbols: Refresh symbols again.
+
+ -- Boyuan Yang <byang@debian.org>  Sun, 08 Nov 2020 20:38:23 -0500
+
+libgav1 (0.16.0-5) unstable; urgency=medium
+
+  * Team upload.
+  * debian/libgav1-0.symbols: Refresh symbols again.
+
+ -- Boyuan Yang <byang@debian.org>  Sun, 08 Nov 2020 20:38:23 -0500
+
+libgav1 (0.16.0-4) unstable; urgency=medium
+
+  * Team upload.
+  * debian/libgav1-0.symbols: Try to distinguish by symbol bits.
+  * debian/rules: Also explicitly disable AVX2 per baseline.
+
+ -- Boyuan Yang <byang@debian.org>  Sat, 31 Oct 2020 12:26:14 -0400
+
+libgav1 (0.16.0-3) unstable; urgency=medium
+
+  * Team upload.
+  * debian/libgav1-0.symbols: refresh symbols.
+  * debian/rules: Adjust build flags to meet Debian's ISA baseline
+    requirement.
+
+ -- Boyuan Yang <byang@debian.org>  Fri, 30 Oct 2020 23:02:37 -0400
+
+libgav1 (0.16.0-2) unstable; urgency=medium
+
+  * Team upload.
+  * debian/control: Update package description to remove mentions
+    of advanced build flags since we are not enabling them.
+
+ -- Boyuan Yang <byang@debian.org>  Thu, 29 Oct 2020 10:19:44 -0400
+
+libgav1 (0.16.0-1) unstable; urgency=medium
+
+  * Initial release (Closes: #973288)
+
+ -- qinxialei <xialeiqin@gmail.com>  Wed, 28 Oct 2020 17:35:33 +0800
