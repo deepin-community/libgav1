@@ -1,8 +1,12 @@
-libgav1 (0.17.0-1) UNRELEASED; urgency=medium
+libgav1 (0.17.0-2) unstable; urgency=medium
 
+  [ Debian Multimedia Maintainers ]
   * update
 
- -- Debian Multimedia Maintainers <debian-multimedia@lists.debian.org>  Tue, 17 May 2022 17:48:51 +0800
+  [ tunaichao ]
+  * Rebuild with LTO enabled (dpkg vendor feature optimize/lto).
+
+ -- tunaichao <tunaichao@uniontech.com>  Thu, 10 Sep 2026 18:19:46 +0800
 
 libgav1 (0.17.0-1) unstable; urgency=medium
 
